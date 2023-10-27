@@ -12,8 +12,22 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_sandwiches2') #google sheet access
 
-sales = SHEET.worksheet('sales')
+# 1. First step in the flowchart is to get our sales data from  the user 
+# we need CVS, comma-separate-values.
+#We are going to create our first function to  collect the sales data from our user.  
 
-data = sales.get_all_values()
+def get_sales_data():
+    """
+    Get sales figures input from the user
+    """
+    print("Please enter sales data from the last market.")
+    print("Data should be six numbers, separated by commas.")
+    print("Example: 10,20,30,40,50,60\n")
 
-print(data)
+    data_str = input("Enter your data here: ")
+    print(f"The data provided is {data_str}")
+
+
+get_sales_data()
+
+
