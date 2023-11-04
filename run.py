@@ -91,13 +91,10 @@ def get_last_5_entries_sales():
     as a list of lists.
     """
     sales = SHEET.worksheet('sales')
-    
-
     columns = []
     for ind in range(1,7):
         column = sales.col_values(ind)
         columns.append(column[-5:])
-    
     return columns 
 
 
@@ -135,3 +132,18 @@ def main():
 print('Welcome to Love Sandwiches Data Automation')
 main()
 
+"""
+Challenge:
+
+def get_stock_values(data):
+    
+   # Get stock headings from the user
+    
+    headings = SHEET.worksheet('stock').get_all_values()[0]
+    print("Make the following numbers of sandwiches for net market:\n")
+    dictionary = {headings[value]:data[value] for value in range(len(headings))}
+    return dictionary
+    
+stock_values = get_stock_values(stock_data)
+print(stock_values)
+""" 
